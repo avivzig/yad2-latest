@@ -71,6 +71,15 @@ public class TruckDetailsInsideTabTest {
 
     }
 
+    //back to home page yad2 assert:
+    @Test(priority = 3, description = "back to yad2 homepage")
+    @Description("clicking on the icon of yad2 and back to the homepage")
+    public void yad2return(){
+
+        truckloop.yad2icon();
+    }
+
+
     @AfterSuite
     public void tearDown() {
         // Close the WebDriver instance after test execution

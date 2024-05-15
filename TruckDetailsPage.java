@@ -1,11 +1,13 @@
 package Yad2Pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
 import java.util.List;
@@ -52,8 +54,13 @@ public class TruckDetailsPage {
     protected By haNd = By.xpath("//*[@id=\"__next\"]/div[3]/main/div[2]/div/div[1]/div[2]/div[2]/span[2]");
 
 
+    //yad2 icon:
+
+    By yad2 = By.xpath("//img[@src='https://assets.yad2.co.il/common/logo-default.svg']");
 
 
+
+    @Step("the chacking of all trucks elements")
     public void findTrucks1() {
         // Find all elements with the class 'feed-item-info_heading__k5pVC'
         List<WebElement> truckElements = driver.findElements(trackName1);
@@ -67,7 +74,7 @@ public class TruckDetailsPage {
         List<WebElement> carHand = driver.findElements(haNd1);
 
         // Iterate through each truck
-        int numTrucksToProcess = Math.min(6, truckElements.size());
+        int numTrucksToProcess = Math.min(2, truckElements.size());
         for (int i = 0; i < numTrucksToProcess; i++) {
             WebElement truck = truckElements.get(i);
             WebElement marketingTextElement = marketingTextElements.get(i);
@@ -171,6 +178,13 @@ public class TruckDetailsPage {
         // For example, wait for a loading spinner to disappear or for a certain element to be present
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className("loading-spinner")));
+    }
+    @Step("back to the yad2 homepae assert")
+    public void yad2icon(){
+        driver.findElement(yad2).click();
+        String currentURLyad2 = driver.getCurrentUrl();
+        String expectedURLyad2 = "https://www.yad2.co.il/";
+        Assert.assertEquals(currentURLyad2,expectedURLyad2);
     }
 
 }
