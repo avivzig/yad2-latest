@@ -48,16 +48,16 @@ public class TestCase02 {
     @Description("moving on the tabs at car page between all sub tabs")
     public void Car_headers() {
         carpagetabs.verifyPrivateCar();
-        softAssert.assertTrue(true, "private cars text is as expected");
+        softAssert.assertTrue(true);
         carpagetabs.verifyMotorcycleTabs();
-        softAssert.assertTrue(true, "motorcycle text is as expected");
+        softAssert.assertTrue(true);
         carpagetabs.verifybikeTabs();
-        softAssert.assertTrue(true, "bikes text is as expected");
+        softAssert.assertTrue(true);
         carpagetabs.tracks();
-        softAssert.assertTrue(true, "trucks text is as expected");
+        softAssert.assertTrue(true);
         carpagetabs.verifySeatravel();
-        softAssert.assertTrue(true, "sea travel text is as expected");
+        softAssert.assertTrue(true);
         carpagetabs.verifySpecialTravel();
-        softAssert.assertTrue(true, "speocial travel text is as expected");
+        softAssert.assertTrue(true);
     }
 }
